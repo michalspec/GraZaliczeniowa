@@ -10,6 +10,7 @@ public class StoneColumnColapse : MonoBehaviour
     public Rigidbody rb;
     public float distance = 50f;
     private bool flag = true;
+    public bool LeftFall = true;
     void Start()
     {
     }
@@ -22,10 +23,16 @@ public class StoneColumnColapse : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if(column.position.z - player.position.z < distance && flag ==true)
+        if(column.position.z - player.position.z < distance && flag ==true && LeftFall)
         {
             rb.freezeRotation = false;
             column.Rotate(0,0, 7,Space.World);
+            flag = false;
+        }
+        if (column.position.z - player.position.z < distance && flag == true && !LeftFall)
+        {
+            rb.freezeRotation = false;
+            column.Rotate(0, 0, -7, Space.World);
             flag = false;
         }
     }
