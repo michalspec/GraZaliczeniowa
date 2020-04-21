@@ -9,7 +9,7 @@ public class GameManager : MonoBehaviour
     public GameObject BonusImage;
     public GameObject BonusScore;
     private GameObject activeObject;
-    public int points = 0;
+    public int points = StoreData.score;
 
     private void Start()
     {
@@ -35,6 +35,7 @@ public class GameManager : MonoBehaviour
         Debug.Log("Level One");
         BonusImage.SetActive(false);
         BonusScore.SetActive(false);
+        StoreData.score = points;
         LevelCompleteUI.SetActive(true);
     }
     public void Restart()

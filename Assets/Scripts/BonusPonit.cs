@@ -2,6 +2,8 @@
 
 public class BonusPonit : MonoBehaviour
 {
+
+    
     public void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.name == "Player")
@@ -10,5 +12,4 @@ public class BonusPonit : MonoBehaviour
             Destroy(gameObject);
         }
     }
-    
 }

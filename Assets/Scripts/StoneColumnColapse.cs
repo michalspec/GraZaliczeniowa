@@ -11,28 +11,19 @@ public class StoneColumnColapse : MonoBehaviour
     public float distance = 50f;
     private bool flag = true;
     public bool LeftFall = true;
-    void Start()
-    {
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
+  
     private void FixedUpdate()
     {
         if(column.position.z - player.position.z < distance && flag ==true && LeftFall)
         {
             rb.freezeRotation = false;
-            column.Rotate(0,0, 7,Space.World);
+            column.Rotate(0,0, 3,Space.World);
             flag = false;
         }
         if (column.position.z - player.position.z < distance && flag == true && !LeftFall)
         {
             rb.freezeRotation = false;
-            column.Rotate(0, 0, -7, Space.World);
+            column.Rotate(0, 0, -3, Space.World);
             flag = false;
         }
     }
